@@ -33,9 +33,10 @@ body {
 
 /* Logo Image */
 .logo-img {
-    width: 120px;
+    width: 180px;   /* Increased size */
+    max-width: 80%;
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* Logo Text */
