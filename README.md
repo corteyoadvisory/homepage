@@ -4,7 +4,7 @@ A modern finance website built with React and Vite.
 
 ## 🚀 Live Site
 
-Hosted on GitHub Pages: [https://your-username.github.io/corteyo](https://your-username.github.io/corteyo)
+
 
 ## 📁 Project Structure
 
