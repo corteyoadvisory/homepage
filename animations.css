@@ -114,3 +114,84 @@ hr, [class*="h-[3px]"] {
   transform-origin: left;
   animation: lineGrow 1s cubic-bezier(.22,1,.36,1) both;
 }
+
+/* ── WhatsApp Floating Button ── */
+a[aria-label="Chat on WhatsApp"] {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  text-decoration: none;
+}
+
+.wa-bubble {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  padding: 12px 18px 12px 14px;
+  border-radius: 50px;
+  box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease;
+  animation: waPop 0.6s cubic-bezier(.22,1,.36,1) 1.5s both, waPulse 2.5s ease-in-out 4s infinite;
+}
+
+.wa-bubble:hover {
+  transform: scale(1.07) translateY(-3px);
+  box-shadow: 0 10px 36px rgba(37,211,102,0.55);
+}
+
+.wa-label {
+  white-space: nowrap;
+}
+
+@keyframes waPop {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
+  50%       { box-shadow: 0 6px 40px rgba(37,211,102,0.75), 0 0 0 10px rgba(37,211,102,0.12); }
+}
+
+/* WhatsApp Tooltip */
+.wa-tooltip {
+  position: fixed;
+  bottom: 90px;
+  right: 28px;
+  z-index: 9998;
+  background: white;
+  color: #0A1D4D;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(10,29,77,0.15);
+  max-width: 230px;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  border-left: 4px solid #25D366;
+}
+.wa-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 36px;
+  border: 8px solid transparent;
+  border-top-color: white;
+  border-bottom: none;
+}
+.wa-tooltip-show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
