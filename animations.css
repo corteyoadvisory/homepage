@@ -1,0 +1,116 @@
+/* ── Corteyo Animations ── */
+
+/* Fade + slide up on scroll */
+.anim-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
+}
+.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for grid children */
+.anim-hidden:nth-child(2) { transition-delay: 0.1s; }
+.anim-hidden:nth-child(3) { transition-delay: 0.2s; }
+.anim-hidden:nth-child(4) { transition-delay: 0.3s; }
+.anim-hidden:nth-child(5) { transition-delay: 0.4s; }
+.anim-hidden:nth-child(6) { transition-delay: 0.5s; }
+
+/* Navbar scroll glass effect */
+nav, header > nav, [class*="nav"] {
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+.nav-scrolled {
+  background: rgba(255,255,255,0.88) !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: 0 2px 24px rgba(10,29,77,0.10) !important;
+}
+
+/* Button pulse glow */
+a[class*="bg-[#20C5C5]"],
+a[class*="bg-[#23C8C8]"],
+button[class*="bg-[#20C5C5]"],
+button[class*="bg-[#23C8C8]"] {
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+a[class*="bg-[#20C5C5]"]:hover,
+a[class*="bg-[#23C8C8]"]:hover,
+button[class*="bg-[#20C5C5]"]:hover,
+button[class*="bg-[#23C8C8]"]:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(32,197,197,0.45);
+}
+
+/* Card lift on hover */
+[class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[32px]"], [class*="rounded-[40px]"] {
+  transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
+}
+[class*="rounded-2xl"]:hover, [class*="rounded-3xl"]:hover,
+[class*="rounded-[32px]"]:hover, [class*="rounded-[40px]"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(10,29,77,0.12);
+}
+
+/* Floating hero image */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+img[class*="h-80"], img[class*="h-60"], img[class*="h-56"] {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Number counter shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.stat-shimmer {
+  background: linear-gradient(90deg, #0A1D4D 30%, #23C8C8 50%, #0A1D4D 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Teal underline link hover */
+nav a, header a {
+  position: relative;
+}
+nav a::after, header a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #23C8C8;
+  transition: width 0.3s ease;
+}
+nav a:hover::after, header a:hover::after {
+  width: 100%;
+}
+
+/* Logo pulse on load */
+@keyframes logoPop {
+  0%   { transform: scale(0.85); opacity: 0; }
+  70%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+img[alt*="logo"], img[alt*="Logo"], img[src*="logo"] {
+  animation: logoPop 0.7s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Section divider shimmer line */
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+hr, [class*="h-[3px]"] {
+  transform-origin: left;
+  animation: lineGrow 1s cubic-bezier(.22,1,.36,1) both;
+}
