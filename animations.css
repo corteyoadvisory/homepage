@@ -10,15 +10,13 @@
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Stagger delays for grid children */
 .anim-hidden:nth-child(2) { transition-delay: 0.1s; }
 .anim-hidden:nth-child(3) { transition-delay: 0.2s; }
 .anim-hidden:nth-child(4) { transition-delay: 0.3s; }
 .anim-hidden:nth-child(5) { transition-delay: 0.4s; }
 .anim-hidden:nth-child(6) { transition-delay: 0.5s; }
 
-/* Navbar scroll glass effect */
+/* Navbar scroll glass */
 nav, header > nav, [class*="nav"] {
   transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
 }
@@ -28,24 +26,20 @@ nav, header > nav, [class*="nav"] {
   box-shadow: 0 2px 24px rgba(10,29,77,0.10) !important;
 }
 
-/* Button pulse glow */
-a[class*="bg-[#20C5C5]"],
-a[class*="bg-[#23C8C8]"],
-button[class*="bg-[#20C5C5]"],
-button[class*="bg-[#23C8C8]"] {
-  position: relative;
+/* Button hover glow */
+a[class*="bg-[#20C5C5]"], a[class*="bg-[#23C8C8]"],
+button[class*="bg-[#20C5C5]"], button[class*="bg-[#23C8C8]"] {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-a[class*="bg-[#20C5C5]"]:hover,
-a[class*="bg-[#23C8C8]"]:hover,
-button[class*="bg-[#20C5C5]"]:hover,
-button[class*="bg-[#23C8C8]"]:hover {
+a[class*="bg-[#20C5C5]"]:hover, a[class*="bg-[#23C8C8]"]:hover,
+button[class*="bg-[#20C5C5]"]:hover, button[class*="bg-[#23C8C8]"]:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 28px rgba(32,197,197,0.45);
 }
 
-/* Card lift on hover */
-[class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[32px]"], [class*="rounded-[40px]"] {
+/* Card lift */
+[class*="rounded-2xl"], [class*="rounded-3xl"],
+[class*="rounded-[32px]"], [class*="rounded-[40px]"] {
   transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
 }
 [class*="rounded-2xl"]:hover, [class*="rounded-3xl"]:hover,
@@ -63,7 +57,7 @@ img[class*="h-80"], img[class*="h-60"], img[class*="h-56"] {
   animation: float 5s ease-in-out infinite;
 }
 
-/* Number counter shimmer */
+/* Stat shimmer */
 @keyframes shimmer {
   0%   { background-position: -200% center; }
   100% { background-position: 200% center; }
@@ -77,25 +71,19 @@ img[class*="h-80"], img[class*="h-60"], img[class*="h-56"] {
   animation: shimmer 3s linear infinite;
 }
 
-/* Teal underline link hover */
-nav a, header a {
-  position: relative;
-}
+/* Nav link underline */
+nav a, header a { position: relative; }
 nav a::after, header a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
   background: #23C8C8;
   transition: width 0.3s ease;
 }
-nav a:hover::after, header a:hover::after {
-  width: 100%;
-}
+nav a:hover::after, header a:hover::after { width: 100%; }
 
-/* Logo pulse on load */
+/* Logo pop */
 @keyframes logoPop {
   0%   { transform: scale(0.85); opacity: 0; }
   70%  { transform: scale(1.05); opacity: 1; }
@@ -105,25 +93,25 @@ img[alt*="logo"], img[alt*="Logo"], img[src*="logo"] {
   animation: logoPop 0.7s cubic-bezier(.22,1,.36,1) both;
 }
 
-/* Section divider shimmer line */
-@keyframes lineGrow {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+/* Clickable links */
+.corteyo-link {
+  color: #23C8C8 !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+  transition: color 0.2s ease;
 }
-hr, [class*="h-[3px]"] {
-  transform-origin: left;
-  animation: lineGrow 1s cubic-bezier(.22,1,.36,1) both;
+.corteyo-link:hover {
+  color: #0A1D4D !important;
 }
 
 /* ── WhatsApp Floating Button ── */
-a[aria-label="Chat on WhatsApp"] {
+.wa-float-btn {
   position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 9999;
   text-decoration: none;
 }
-
 .wa-bubble {
   display: flex;
   align-items: center;
@@ -137,24 +125,19 @@ a[aria-label="Chat on WhatsApp"] {
   font-size: 15px;
   font-weight: 600;
   transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease;
-  animation: waPop 0.6s cubic-bezier(.22,1,.36,1) 1.5s both, waPulse 2.5s ease-in-out 4s infinite;
+  animation: waPop 0.6s cubic-bezier(.22,1,.36,1) both, waPulse 2.5s ease-in-out 2s infinite;
 }
-
 .wa-bubble:hover {
   transform: scale(1.07) translateY(-3px);
   box-shadow: 0 10px 36px rgba(37,211,102,0.55);
 }
-
-.wa-label {
-  white-space: nowrap;
-}
+.wa-label { white-space: nowrap; }
 
 @keyframes waPop {
   0%   { transform: scale(0); opacity: 0; }
   70%  { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(1); }
 }
-
 @keyframes waPulse {
   0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
   50%       { box-shadow: 0 6px 40px rgba(37,211,102,0.75), 0 0 0 10px rgba(37,211,102,0.12); }
@@ -185,8 +168,7 @@ a[aria-label="Chat on WhatsApp"] {
 .wa-tooltip::after {
   content: '';
   position: absolute;
-  bottom: -8px;
-  right: 36px;
+  bottom: -8px; right: 36px;
   border: 8px solid transparent;
   border-top-color: white;
   border-bottom: none;
@@ -194,4 +176,23 @@ a[aria-label="Chat on WhatsApp"] {
 .wa-tooltip-show {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+/* ── BuildEdge Footer Badge ── */
+.buildedge-badge {
+  text-align: center;
+  padding: 12px 0 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.02em;
+}
+.buildedge-badge a {
+  color: rgba(35,200,200,0.7);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.buildedge-badge a:hover {
+  color: #23C8C8;
 }
