@@ -1,1 +1,0 @@
-A modern frontend web application built using a modular JavaScript framework (likely React with Vite). This project serves as the entry point for a single-page application (SPA) designed for financial-related use cases.
