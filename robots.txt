@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Block any admin or private paths (add more as needed)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Crawl delay (optional — helps with server load)
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://corteyoadvisory.com/sitemap.xml
+
+# Allow major search engine bots explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
