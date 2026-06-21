@@ -180,7 +180,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const badge = document.createElement('div');
     badge.className = 'buildedge-badge';
     badge.innerHTML = `Crafted by <a href="https://buildedgestudios.in/" target="_blank" rel="noopener noreferrer">BuildEdge Studios</a>`;
-    footer.appendChild(badge);
+
+    // Try to place it directly under the copyright line for accurate positioning
+    const copyrightEl = Array.from(footer.querySelectorAll('p')).find(p =>
+      p.textContent.includes('All rights reserved')
+    );
+    if (copyrightEl && copyrightEl.parentElement) {
+      copyrightEl.parentElement.insertAdjacentElement('afterend', badge);
+    } else {
+      footer.appendChild(badge);
+    }
   }
   setTimeout(injectFooterBadge, 800);
   setTimeout(injectFooterBadge, 2000);
